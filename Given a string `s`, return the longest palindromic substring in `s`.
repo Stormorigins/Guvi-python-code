@@ -1,0 +1,42 @@
+5, Given a string `s`, return the longest palindromic substring in `s`.
+Input Description:
+A string `s`.
+Output Description:
+The longest palindromic substring in `s`.
+Examples:
+**Example 1:**
+- Input: `s = "babad"`
+- Output: `"bab"`
+- Explanation: `"aba"` is also a valid answer.
+**Example 2:**
+- Input: `s = "cbbd"`
+- Output: `"bb"`
+Constraints:
+1 <= s.length <= 1000
+s consists of only digits and English letters.
+
+
+
+code:
+
+op=""
+oplen=0
+for i in range(len(s)):
+    l,r=i,i
+    while l>=0 and r<len(s) and s[l]==s[r]:
+        if (r-l+1)> oplen:
+            op=s[l:r+1]
+            oplen=r-l+1
+        l=l-1
+        r=r+1
+    l,r=i,i+1
+    while l>=0 and r<len(s) and s[l]==s[r]:
+        if (r-l+1)> oplen:
+            op=s[l:r+1]
+            oplen=r-l+1
+        l=l-1
+        r=r+1
+print(op)
+
+output:
+s=str(input())
